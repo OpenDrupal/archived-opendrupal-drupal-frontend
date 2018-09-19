@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.about.body
+    - field.field.node.about.field__subtitle
+    - field.field.node.about.field_about_image
+    - node.type.about
+  module:
+    - image
+    - text
+id: node.about.default
+targetEntityType: node
+bundle: about
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+  field__subtitle:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_about_image:
+    type: image_image
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: tags
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  sticky: true

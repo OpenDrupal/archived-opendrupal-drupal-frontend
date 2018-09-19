@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Overrides block--system-menu-block.html.twig.
+ *
+ * Changes:
+ *  - Removed nav wrapper.
+ *  - Always hide block title.
+ */
+#}
+{{ title_prefix }}
+<h2 id="{{ heading_id }}"{{ title_attributes.addClass('visually-hidden') }}>{{ configuration.label }}</h2>
+{{ title_suffix }}
+{% block content %}
+  {{ content }}
+{% endblock %}

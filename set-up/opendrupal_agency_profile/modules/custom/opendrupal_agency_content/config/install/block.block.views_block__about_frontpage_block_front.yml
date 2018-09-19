@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.about_frontpage
+  module:
+    - system
+    - views
+  theme:
+    - opendrupal_agency
+id: views_block__about_frontpage_block_front
+theme: opendrupal_agency
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:about_frontpage-block_front'
+settings:
+  id: 'views_block:about_frontpage-block_front'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,26 @@
+Exercise for node layout with custom markup and individual fields.
+Estimated time: 45 min.
+
+==== Exercise 1 ====
+Adjust the layout of the Portfolio page.
+- Investigate the source code of the 'Rounded icons' portfolio page in 
+  set-up/source-files/index.html
+- Create a custom node template for the portfolio page. Copy the HTML from
+  the source in this template.
+- Add individual fields to the template using twig syntax. See the tips below.
+- Check the result.
+
+---- Tips ----
+- Print the field field_example: {{ content.field_example }}
+- Portfolio fields: admin/structure/types/manage/portfolio/fields
+
+==== Exercise 2 ====
+Use the Teaser view mode to display portfolio's on the front page.
+- Modify the 'Portfolio frontpage' view to use the Teaser view mode instead of
+  fields.
+- Configure the Portfolio Teaser view mode to include the required fields in
+  the right format.
+- Create a template override for the Portfolio Teaser. Copy the HTML from the
+  source and add portfolio fields. Adjust markup and fields where needed to
+  make appearance match the original.
+- Check the result.

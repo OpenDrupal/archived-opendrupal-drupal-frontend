@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Overrides region.html.twig for primary_menu region.
+ *
+ * @see template_preprocess_region()
+ * @see region.html.twig
+ *
+ * Changes:
+ *  - Wrapper div replaced by nav.
+ *  - Wrapper has fixed classes. Drupal default classes are ignored.
+ */
+#}
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    {{ content }}
+  </div>
+</nav>

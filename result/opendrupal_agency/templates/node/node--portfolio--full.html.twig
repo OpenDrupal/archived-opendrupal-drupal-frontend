@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Overrides stable/node.html.twig
+ *
+ * Changes:
+ * - Custom markup with individual fields.
+ */
+#}
+<article{{ attributes }}>
+  <h2>{{ label }}</h2>
+  <p class="item-intro text-muted">{{ content.field__subtitle.0 }}</p>
+  {{ content.field_portfolio_screenshot }}
+  {{  content.body }}
+  <ul class="list-inline">
+    <li>Date: {{ content.field_portfolio_date.0 }}</li>
+    <li>Client: {{ content.field_portfolio_client.0 }}</li>
+    <li>Category: {{ content.field_portfolio_category.0 }}</li>
+  </ul>
+</article>

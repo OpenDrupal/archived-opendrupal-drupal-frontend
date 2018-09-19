@@ -1,0 +1,33 @@
+.timeline>li:nth-child(2n)>.timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.timeline>li:nth-child(2n)>.timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+
+@media(min-width:768px) {
+  .timeline > li:nth-child(2n) > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+  }
+}
+
+@media(min-width:992px) {
+  .timeline > li:nth-child(2n) > .timeline-panel {
+    padding: 0 20px 20px;
+  }
+}
+
+@media(min-width:1200px) {
+  .timeline > li:nth-child(2n) > .timeline-panel {
+    padding: 0 100px 20px 20px;
+  }
+}

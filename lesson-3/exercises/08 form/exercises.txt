@@ -1,0 +1,84 @@
+Exercises to customize forms.
+Estimated time: 45 min.
+
+==== Exercise 1 ====
+Adjust the HTML of the contact form block.
+- Compare the HTML of the Drupal contact form with the HTML of the source.
+- Adjust the Drupal output where needed to get the right block style. Fields, 
+  button and field layout will be covered in the following exercises.
+
+==== Exercise 2 ====
+Adjust the HTML of the contact form for a two collumn layout.
+- Compare the apprearence of the form in Drupal and in the Source. The fields
+  name, email and telephone must be on the left, the message field on the 
+  right.
+- Use a form alter function to add wrappers to the fields to
+  achieve this layout. Copy the PHP code below to the opendrupal_agency.theme
+  file and use the tips below.
+
+---- PHP code ----
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Modifies the contact form to match the design.
+ */
+function opendrupal_agency_form_contact_message_feedback_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+}
+
+---- Tips ----
+- $form['field_contact_phone']['#suffix']
+- $form['message']['#prefix']
+- $form['message']['#suffix']
+- $form['name']['#prefix']
+- </div>
+- </div></div>
+- <div class="col-md-6">
+- <div class="row"><div class="col-md-6">
+
+==== Exercise 3 ====
+Add classes for the right styling.
+- Use the kint() function to investigate the content of the $form variable. 
+  Find out how classes are provided for the Submit button and the button
+  wrapper. Look for the css attributes under the 'actions' key in the $form 
+  array.
+- Add missing CSS classes to the button using PHP in the form alter function 
+  you created in the previous exercise.
+
+---- Tips ----
+- $form['actions']['#attributes']['class'][]
+- $form['actions']['#attributes']['class'][]
+- $form['actions']['submit']['#attributes']['class'][]
+- $form['actions']['submit']['#attributes']['class'][]
+- btn
+- btn-xl
+- col-lg-12
+- text-center
+
+==== Exercise 4 (optional) ====
+Hide the Drupal field labels of all form fields.
+- Use the form alter function to hide the field labeld. Use the kint() function
+  to investigate how the labels are provided in the $form array. Field labels
+  can not be hidden with configuration.
+- Do not use unset() to remove the label data from the $form array. Use the 
+  attribute '#title_display'.
+  
+---- Tips ----
+- $form['field_contact_phone']['widget'][0]['value']['#title_display']
+- $form['mail']['#title_display']
+- $form['message']['widget'][0]['value']['#title_display']
+- $form['name']['#title_display']
+- invisible
+
+==== Exercise 5 (optional) ====
+Add a placeholder to the form fields as a replacement of the label.
+- use an implementation of hook_preprocess_FORM_ELEMENT() to add a 
+  'placeholder' attribute to the fields. 
+- Use the original label text as placeholder text.
+
+---- Tips ----
+- $variables['attributes']['class'][]
+- $variables['attributes']['placeholder']
+- $variables['element']['#title']
+- form-control
+- opendrupal_agency_preprocess_input()
+- opendrupal_agency_preprocess_textarea()

@@ -1,0 +1,11 @@
+name: 'OpenDrupal Agency'
+mail: admin@example.com
+slogan: "It's Nice To Meet You"
+page:
+  403: ''
+  404: ''
+  front: /front
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en

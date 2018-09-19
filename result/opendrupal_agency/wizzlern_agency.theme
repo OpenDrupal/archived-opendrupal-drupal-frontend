@@ -1,0 +1,178 @@
+<?php
+
+/**
+ * @file
+ * Preprocess hooks and other theme functions for the OpenDrupal Agency theme.
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function opendrupal_agency_preprocess_html(&$variables) {
+
+  // Adds: <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  $variables['head']['X-UA-Compatible'] = array (
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array (
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=edge',
+    ),
+  );
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function opendrupal_agency_page_attachments_alter(array &$attachments) {
+
+  // Add library only for authenticated users.
+  $logged_in = \Drupal::currentUser()->isAuthenticated();
+  if ($logged_in) {
+    $attachments['#attached']['library'][] = 'opendrupal_agency/authenticated';
+  }
+}
+
+/**
+ * Implements hook_js_alter().
+ */
+function opendrupal_agency_js_alter(&$javascripts) {
+  $footer_scripts = array(
+    'core/assets/vendor/jquery/jquery.minjquery.js',
+    'themes/opendrupal_agency/js/bootstrap.min.js',
+    '//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+    'themes/opendrupal_agency/js/classie.jsclassie.js',
+    'themes/opendrupal_agency/js/cbpAnimatedHeader.min.js',
+    'themes/opendrupal_agency/js/jqBootstrapValidation.js',
+    'themes/opendrupal_agency/js/agency.js',
+  );
+
+  // Place all specified scripts in the footer.
+  foreach ($javascripts as $key => $javascript) {
+    if (in_array($key, $footer_scripts)) {
+      $javascripts[$key]['scope'] = 'footer';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function opendrupal_agency_preprocess_menu(&$variables) {
+
+  // Add site name to main menu block.
+  if ($variables['menu_name'] == 'main') {
+    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  }
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function opendrupal_agency_views_post_render(ViewExecutable $view, &$output, $cache) {
+
+  // Add an extra item to the end of the About Us frontpage view.
+  if ($view->storage->id() == 'about_frontpage') {
+    $text = t('Be Part<br />Of Our<br />Story!');
+    $extra_item = '<div class="timeline-image"><h4>' . $text . '</h4></div>';
+    $output['#rows'][0]['#rows'][] = array('#markup' => $extra_item);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Modify the contact form to match our design.
+ */
+function opendrupal_agency_form_contact_message_feedback_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  // Add wrapper divs for form layout.
+  $form['name']['#prefix'] = '<div class="row"><div class="col-md-6">';
+  $form['field_contact_phone']['#suffix'] = '</div>';
+  $form['message']['#prefix'] = '<div class="col-md-6">';
+  $form['message']['#suffix'] = '</div></div>';
+
+  // Hide the field labels and preview button.
+  // Note that '#title_display' must be set at the lowest child level.
+  $form['name']['#title_display'] = 'invisible';
+  $form['mail']['#title_display'] = 'invisible';
+  $form['field_contact_phone']['widget'][0]['value']['#title_display'] = 'invisible';
+  $form['message']['widget'][0]['value']['#title_display'] = 'invisible';
+  $form['message']['widget'][0]['value']['#title'] = t('Your message');
+  $form['actions']['preview']['#access'] = FALSE;
+
+  // Add classes for button style.
+  $form['actions']['#attributes']['class'][] = 'col-lg-12';
+  $form['actions']['#attributes']['class'][] = 'text-center';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-xl';
+}
+
+/**
+ * Implements hook_preprocess_input().
+ */
+function opendrupal_agency_preprocess_input(&$variables) {
+
+  $supported_types = array(
+    'text',
+    'email',
+  );
+
+  // Set attributes and classes for text type input field.
+  if (in_array($variables['attributes']['type'], $supported_types)) {
+    _opendrupal_agency_modify_input_elements($variables);
+  }
+}
+
+/**
+ * Implements hook_preprocess_textarea().
+ */
+function opendrupal_agency_preprocess_textarea(&$variables) {
+
+  // Set attributes and classes for text area type input field.
+  _opendrupal_agency_modify_input_elements($variables);
+}
+
+/**
+ * Implements template_preprocess_image_formatter().
+ */
+function opendrupal_agency_preprocess_image_formatter(&$variables) {
+  $variables['attributes'] = [];
+
+  if ($variables['url']) {
+    $lightbox = \Drupal::service('ng_lightbox');
+    if ($lightbox->isNgLightboxEnabledPath($variables['url'])) {
+      $link = [];
+      $lightbox->addLightbox($link);
+      $variables['link_attributes'] = new Attribute();
+      foreach ($link['options']['attributes'] as $attribute => $value) {
+        $variables['link_attributes']->setAttribute($attribute, $value);
+      }
+    }
+  }
+}
+
+/**
+ * Modifies form input fields for styling and usability.
+ *
+ * @param $variables
+ *   Array of form element values.
+ */
+function _opendrupal_agency_modify_input_elements(&$variables) {
+
+  // Add class for styling.
+  $variables['attributes']['class'][] = 'form-control';
+
+  // When the field label is hidden, add placeholder attribute for in-field label.
+  if ($variables['element']['#title_display'] == 'invisible') {
+    if ($variables['element']['#required'] == TRUE) {
+      $variables['attributes']['placeholder'] = t('@label *', array('@label' => $variables['element']['#title']));
+    }
+    else {
+      $variables['attributes']['placeholder'] = $variables['element']['#title'];
+    }
+  }
+}

@@ -1,0 +1,37 @@
+Exercise to learn to use preprocess functions.
+Estimated time: 45 min.
+
+==== Exercise 1 ====
+Create a separate library to load CSS conditionally.
+- Copy the CSS file and opendrupal_agency.theme files from this exercise into
+  your theme. The opendrupal_agency.theme file contains stubs for the functions
+	your will write in these exercises.
+- Create a second library defintion that will only be loaded for logged-in
+  users.
+- Add agency-authenticated.css to this library.
+- Use the function opendrupal_agency_page_attachments_alter() to load the 
+  library when the user is logged in. Use the hints below for the PHP code 
+	of this function.
+
+---- Hints -----
+\Drupal::currentUser()->isAuthenticated()
+$attachments['#attached']['library'][]
+
+==== Exercise 2 ====
+To reduce the perceived page loading time, move JavaScript files to the end of
+the page.
+- Use the opendrupal_js_alter() function to modify the loading of JavaScript.
+- Search for documentation or examples of hook_js_alter implementations.
+- Use the hints below to write the code in opendrupal_js_alter() to move
+  JavaScript files to the end of the page.
+- Check if the JavaScript still works.
+
+---- Hints ----
+- $javascripts[$key]['scope'] = 'footer';
+
+==== Exercise 3 (optional) ====
+Add a compatibility mata tag to the html head: <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+- Use opendrupal_preprocess_html() to add a meta tag to the Drupal output.
+- Search for implementations of hook_preprocess_html in Drupal core.
+- Write the code to add the meta tag to the output.

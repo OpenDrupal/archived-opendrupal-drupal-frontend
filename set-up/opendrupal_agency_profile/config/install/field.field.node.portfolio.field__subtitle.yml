@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field__subtitle
+    - node.type.portfolio
+id: node.portfolio.field__subtitle
+field_name: field__subtitle
+entity_type: node
+bundle: portfolio
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+body.toolbar-tray-open .navbar-fixed-top {
+  top: 39px;
+}
+
+body.toolbar-tray-open.toolbar-horizontal .navbar-fixed-top {
+  top: 79px;
+}
+
+body.toolbar-tray-open.toolbar-vertical .navbar-fixed-top {
+  left: 15rem;
+}

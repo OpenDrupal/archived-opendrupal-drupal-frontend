@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Drupal 8 Front-end Development | Open Drupal</title>
+
+		<link rel="stylesheet" href="slide-foundation/node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="slide-foundation/css/open-drupal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="slide-foundation/node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'slide-foundation/node_modules/reveal.js/css/print/pdf.css' : 'slide-foundation/node_modules/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-markdown>
+          # Drupal 8 Front-end Development
+          
+          Learn to implement a front-end design as a Drupal theme.
+          
+          - [About this course](intro)
+          - [Course preparation](set-up)
+          - [Lesson 1: Basic theme with CSS and JS](lesson-1.html) ([exercises](lesson-1/exercises))
+          - [Lesson 2: Twig and Twig templates](lesson-2.html) ([exercises](lesson-2/exercises))
+          - [Lesson 3: Advanced theming](lesson-3.html) ([exercises](lesson-3/exercises))
+          - [The completed exercise theme](result)
+        </section>
+			</div>
+      <footer>
+        <div class="copyright"><img class="logo" src="slide-foundation/assets/logo-transparent.png" />
+          Drupal 8 Front-end Development
+          <a class="license" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="slide-foundation/assets/creative-commons-by-sa-80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+    <a href="https://github.com/OpenDrupal/opendrupal-drupal-frontend"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+		<script src="slide-foundation/node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="slide-foundation/node_modules/reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'slide-foundation/node_modules/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'slide-foundation/node_modules/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'slide-foundation/node_modules/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'slide-foundation/node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+				history: true,
+				controlsTutorial: false,
+				transition: 'none',
+				backgroundTransition: 'none',
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+Exercises to start a theme for the OpenDrupal Agency.
+Estimated time: 15 min.
+
+==== Exercise 1 ====
+Complete the theme meta data to make the site appear on the themes overview page.
+- Copy the opendrupal_agency directory to the themes folder in your drupal
+  installation.
+- Find examples of *.info.yml files in core themes.
+- Study the documentation at https://www.drupal.org/node/2349827
+- Complete the required data in opendrupal_agency.info.yml
+
+==== Exercise 2 ====
+Add regions to the opendrupal_agency.info.yml file.
+- Add the following regions:
+  - primary_menu
+  - header
+  - help
+  - content
+  - footer
+- Enable the theme and check the result.
+
+==== Exercise 3 ====
+Add content to the site
+- Enable the opendrupal_agency_content module, that is included in the site.
+  This module will add content types, nodes, blocks and views that make up
+  the front page of the site.
+- Check the added content at admin/content and check the front page.

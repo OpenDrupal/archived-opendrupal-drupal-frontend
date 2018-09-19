@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_client
+    - node.type.portfolio
+id: node.portfolio.field_portfolio_client
+field_name: field_portfolio_client
+entity_type: node
+bundle: portfolio
+label: Client
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Overrides stable/node.html.twig
+ *
+ * Changes:
+ * - Custom markup with individual fields.
+ */
+#}
+<a class="portfolio-link" href="{{ url }}">
+<span class="portfolio-hover">
+  <span class="portfolio-hover-content">
+    <i class="fa fa-plus fa-3x"></i>
+  </span>
+</span>
+  {{ content.field_portfolio_screenshot }}
+</a>
+<div class="portfolio-caption">
+  <h4>{{ label }}</h4>
+  <p class="text-muted">{{ content.field__subtitle.0 }}</p>
+</div>

@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.team.body
+    - field.field.node.team.field__font
+    - field.field.node.team.field__subtitle
+    - field.field.node.team.field_team_image
+    - node.type.team
+  module:
+    - image
+    - text
+    - user
+id: node.team.default
+targetEntityType: node
+bundle: team
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field__font:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field__subtitle:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_team_image:
+    weight: 104
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  links:
+    weight: 100
+hidden: {  }

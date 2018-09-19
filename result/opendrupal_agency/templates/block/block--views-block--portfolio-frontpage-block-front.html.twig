@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Overrides block.html.twig.
+ *
+ * Changes:
+ *  - Removed nav wrapper.
+ *  - Remove ID and attributes from title.
+ *  - Added wrapper div to content.
+ */
+#}
+<section id="portfolio" class="bg-light-gray">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        {{ title_prefix }}
+        <h2 class="section-heading">{{ label }}</h2>
+        {{ title_suffix }}
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      {{ content }}
+    </div>
+
+  </div>
+</section>

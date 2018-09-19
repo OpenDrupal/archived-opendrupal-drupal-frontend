@@ -1,0 +1,24 @@
+Exercises to migrate the base layout of the theme.
+Estimated time: 45 min.
+
+==== Exercise 1 ====
+Use the provided templates.
+- Copy the templates directory from this exercise to your theme.
+- Clear the cache.
+- Compare the index.html from the source with the current Drupal output.
+
+==== Exercise 2 ====
+Add variables to the page templates.
+- Add a twig variabele to every region of the theme.
+- Add a twig variable for 'message' and 'tabs'.
+- Clear the cache and check the result.
+
+---- Hints ----
+You need the following variables for the page template:
+- {{ messages }}
+- {{ page.content }}
+- {{ page.footer }}
+- {{ page.header }}
+- {{ page.help }}
+- {{ page.primary_menu }}
+- {{ tabs }}

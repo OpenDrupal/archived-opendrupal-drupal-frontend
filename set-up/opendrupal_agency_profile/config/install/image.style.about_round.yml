@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: about_round
+label: 'About - round'
+effects:
+  5043b3e1-1bbd-4f7c-8b24-36acf9e37fd8:
+    uuid: 5043b3e1-1bbd-4f7c-8b24-36acf9e37fd8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 156
+      height: 156

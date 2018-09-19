@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - opendrupal_agency
+id: mainnavigation
+theme: opendrupal_agency
+region: primary_menu
+weight: -4
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  cache:
+    max_age: -1
+    contexts: {  }
+visibility: {  }

@@ -1,0 +1,97 @@
+Exercises to add style sheets and JavaScripts to the theme using a library.
+Estimated time: 60 min.
+
+==== Exercise 1 ====
+Prepare Drupal for front-end development.
+- Disable CSS and JS aggregation at admin/config/development/performance.
+- Enable twig debugging:
+  - Check that the sites/default/settings.php (or the active settings.php)
+    contains:
+    $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+  - In sites/default/services.yml (or the one designated by the above line of code)
+    change the value of twig debug config to 'true':
+      twig.config:
+        debug: true
+  - Clear the cache
+  - Check that the front page's HTML source starts with:
+    <!--THEME DEBUG-->
+	- Enable the following modules: Devel, Kint
+
+==== Exercise 2 ====
+Create a library for locally stored CSS files.
+- Find examples of the THEME.libraries.yml file in core themes.
+- Copy the opendrupal_agency.libraries.yml and the css folder to the site's
+  theme/opendrupal_agency directory.
+- Add the name of the drupal-agency.css file to the opendrupal_agency.libraries.yml
+  file to have it included in the library. Check the documentation and 
+  examples for the right format.
+  https://www.drupal.org/docs/8/theming/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-theme
+- Clear the cache.
+- Check if the CSS file is loaded on the front page.
+
+==== Exercise 3 ====
+Add more CSS files to the library.
+- Copy the Agency CSS source files from set-up/source-files/css to your theme.
+- Also copy other style related files such as images and fonts to the theme.
+  Make sure you do not change the folder structure and names relative to the
+  css folder. As this will break fonts and images which are referenced by the
+  Agency CSS files. Below you find a list of required CSS files.
+- Add the required style sheets to the library definition. Make sure the file
+  drupal-agency.css is loaded last.
+- Add the 'minified' option when needed. 
+- Clear the cache and check if the CSS files are loaded.
+
+---- Hints ----
+Required CSS files:
+- bootstrap.min.css
+- agency.css
+- drupal-agency.css
+- font-awesome.min.css
+
+==== Exercise 4 ====
+Add local JavaScript files to the library.
+- Copy the JS files from the source files into a 'js' folder in the 
+  opendrupal_agency theme. Below you find a list of required JS files.
+- Add the JavaScript files to the library definition. Add the 'minified' 
+  option when needed. 
+- The bootstrap theme uses jQuery. Add Drupal's build in jQuery library as a
+  dependency to the opendrupal_agency.library.yml.
+- Clear the cache and check if the JS files are loaded.
+
+---- Hints ----
+Required JavaScript files:
+- bootstrap.min.js
+- classie.js
+- cbpAnimatedHeader.js
+- jqBootstrapValidation.js
+- agency.js
+- drupal-agency.js
+
+==== Exercise 5 ====
+Add external CSS and JS files to the library.
+- Find examples of adding external CSS and JS files to a library in the 
+  documentation. https://www.drupal.org/theme-guide/8/assets
+- Copy the URLs of external files from set-up/source-files/index.html and add
+  them to the library.
+- Clear the cache and check if the files are loaded.
+
+---- Hints ----
+Required external files:
+- fonts.googleapis.com/css (4x)
+- jquery.easing.min.js
+- respond.min.js
+
+==== Exercise 6 (optional) ====
+Add conditional CSS or JS files (e.g. for IE) to the library.
+- Find examples of conditional CSS and/or JS sheets in core themes.
+- Load respond.js conditionally for IE as in the index.html source. Use the 
+  same conditions as in the source.
+- Clear the cache and check the result.
+
+==== Exercise 7 (optional) ====
+Remove CSS files that are added by Drupal but not used.
+- Investigate which CSS and JS files are added by Drupal by default. To do
+  this, you enable the Stable theme (instead of the OpenDrupal Agency theme).
+- Suppress the loading of (some of) these files by using the 
+  'stylesheets-remove' option in the library.
+- Clear the cache and check the result.

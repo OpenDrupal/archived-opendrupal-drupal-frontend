@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.portfolio.body
+    - field.field.node.portfolio.field__subtitle
+    - field.field.node.portfolio.field_portfolio_category
+    - field.field.node.portfolio.field_portfolio_client
+    - field.field.node.portfolio.field_portfolio_date
+    - field.field.node.portfolio.field_portfolio_screenshot
+    - image.style.portfolio_front
+    - node.type.portfolio
+  module:
+    - image
+    - text
+    - user
+id: node.portfolio.default
+targetEntityType: node
+bundle: portfolio
+mode: default
+content:
+  body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field__subtitle:
+    type: string
+    weight: 0
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    label: hidden
+  field_portfolio_category:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_portfolio_client:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_portfolio_date:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_portfolio_screenshot:
+    type: image
+    weight: 1
+    settings:
+      image_style: portfolio_front
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field__font: true
+  links: true

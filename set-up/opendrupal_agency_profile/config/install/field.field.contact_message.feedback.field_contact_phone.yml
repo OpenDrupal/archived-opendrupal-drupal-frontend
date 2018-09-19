@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_contact_phone
+id: contact_message.feedback.field_contact_phone
+field_name: field_contact_phone
+entity_type: contact_message
+bundle: feedback
+label: 'Your phone'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

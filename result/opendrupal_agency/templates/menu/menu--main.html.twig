@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Overrides memu.html.twig for main menu.
+ *
+ * @see memu.html.twig
+ *
+ * Changes:
+ *  - Added div.navbar-header with button.navbar-toggle.
+ *  - Added menu wrapper div.navbar-collapse.
+ *  - Added menu ul classes.
+ *  - Added/removed menu li classes.
+ */
+#}
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header page-scroll">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand page-scroll" href="#page-top">{{ site_name }}</a>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+{% import _self as menus %}
+{{ menus.menu_links(items, attributes, 0) }}
+</div>
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        {% else %}
+      <ul class="menu">
+    {% endif %}
+      {% for item in items %}
+        <li{{ item.attributes.addClass('page-scroll').removeClass('leaf') }}>
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,13 @@
+Exercises to display the menu.
+Estimated time: 30 min.
+
+==== Exercise 1 ====
+Apply markup to the main menu block for the right styling.
+- Investigate which HTML and CSS classes are used for the main menu in the 
+  source. 
+- Which HTML and CSS classes are used in the Drupal output.
+- Determine which template output must be changed to make the Drupal output
+  match the source.
+- Create a template override for the main menu and modify the HTML and/or
+  classes.
+- Check the result. The layout and styling must match the original.

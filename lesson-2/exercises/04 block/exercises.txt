@@ -1,0 +1,16 @@
+Exercises to style a block.
+Estimated time: 30 min.
+
+==== Exercise 1 ====
+Adjust the markup of the footer block for the right styling.
+- Investigate which HTML and CSS classes are used for the page footer in the 
+  source. To investigate the source, open the source-files/index.html in a 
+	browser.
+- Which HTML and CSS classes are used in the Drupal output.
+- Create a template override for the footer block to modify the HTML and/or
+  classes of this block. Check the debug information in the page source to see
+  which alternative template names are available. 
+- Choose the least specific and create a copy of the classy/block.html.twig
+  with this name in the theme templates folder.
+- Clear the cache and check if this template is now loaded.
+- Adjust the content of the template to make the HTML match the original.

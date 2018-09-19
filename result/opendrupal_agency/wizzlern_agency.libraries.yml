@@ -1,0 +1,31 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/bootstrap.min.css: { minified: true  }
+      css/agency.css: { }
+      "css/drupal-agency.css": { }
+      font-awesome/css/font-awesome.min.css: { minified: true }
+      "http://fonts.googleapis.com/css?family=Montserrat:400,700": { type: external }
+      "http://fonts.googleapis.com/css?family=Kaushan+Script": { type: external }
+      "http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic": { type: external }
+      "http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700": { type: external }
+  js:
+    js/bootstrap.min.js: {}
+    js/classie.js: {}
+    js/cbpAnimatedHeader.js: {}
+    js/jqBootstrapValidation.js: {}
+    js/agency.js: {}
+    js/drupal-agency.js: {}
+    "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js": { minified: true, type: external }
+    "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js": { browsers: { IE: 'lt IE 9', !IE: false }, minified: true, type: external }
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+authenticated:
+  version: VERSION
+  css:
+    theme:
+      "css/agency-authenticated.css": {}
+

@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Agency theme.
+
+opendrupal_agency.settings:
+  type: theme_settings
+  label: 'Agency theme settings'

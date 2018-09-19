@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: portfolio_front
+label: 'Portfolio frontpage'
+effects:
+  0918b582-068a-4a40-892a-4258e502f2e0:
+    uuid: 0918b582-068a-4a40-892a-4258e502f2e0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 260

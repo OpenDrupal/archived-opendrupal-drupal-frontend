@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * @file
+ * Hooks and helper function for the opendrupal_agency_content module.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\node\Entity\Node;
+
+/**
+ * Creates node content using node definitions form files.
+ *
+ * @param string $dir
+ *   Directory containing content files. Relative to current directory.
+ * @param array $files
+ *   Optional array of files to be included in the node.
+ * @param string $extension
+ *   Content file name extension.
+ *
+ * @throws Exception
+ *   Exception when node format is invalid.
+ */
+function opendrupal_agency_content_create_nodes($dir, $files = array(), $extension) {
+  $path = dirname(__FILE__) . '/' . $dir;
+  $node_files = file_scan_directory($path, "@\.${extension}$@");
+
+  foreach ($node_files as $node_file) {
+    ob_start();
+    include $path . '/' . $node_file->filename;
+    ob_get_clean();
+    if (isset($nodes)) {
+      foreach ($nodes as $node) {
+        Node::create($node)->save();
+      }
+    }
+  }
+}
+
+/**
+ * Creates managed file content using files from a directory.
+ *
+ * Files are found recursively in the $directory, will be stored in the
+ * public files system and meta data is stored in the database. The directory
+ * structure under $directory will be re-created in the public files directory.
+ *
+ * @param string $directory
+ *   Directory containing content files. Relative to current directory.
+ * @param string $extension
+ *   Content file name extension.
+ *
+ * @return array
+ *   Array of stored file data keyed by path/filename.
+ *
+ * @throws Exception
+ *   Exception when node format is invalid.
+ */
+function opendrupal_agency_content_create_files($directory) {
+  $managed_files = array();
+
+  $directory = dirname(__FILE__) . '/' . $directory;
+  $files = file_scan_directory($directory, "@.*@");
+  asort($files);
+
+  $base_dir_length = strlen($directory) + 1;
+  foreach ($files as $path => $file) {
+    $key = substr($path, $base_dir_length);
+
+    $handle = fopen($file->uri, 'r');
+    $data = fread($handle, filesize($file->uri));
+    fclose($handle);
+    $destination = 'public://' . $key;
+    $public_directory = dirname($destination);
+    file_prepare_directory($public_directory, FILE_CREATE_DIRECTORY);
+    $managed_file = file_save_data($data, $destination, FILE_EXISTS_REPLACE);
+    if ($managed_file) {
+      $managed_files[$key] = $managed_file;
+    }
+  }
+  return $managed_files;
+}
+
+
+/**
+ * Creates block content using block definitions files.
+ *
+ * @param string $dir
+ *   Directory containing block files. Relative to current directory.
+ * @param string $extension
+ *   Content file name extension.
+ *
+ * @throws Exception
+ *   Exception when node format is invalid.
+ */
+function opendrupal_agency_content_create_blocks($dir, $extension) {
+  $path = dirname(__FILE__) . '/' . $dir;
+  $block_files = file_scan_directory($path, "@\.${extension}$@");
+
+  foreach ($block_files as $block_file) {
+    ob_start();
+    include $path . '/' . $block_file->filename;
+    ob_get_clean();
+    if (isset($blocks)) {
+      foreach ($blocks as $block) {
+        // Create a content block entity;
+        $block_entity = BlockContent::create($block['content']);
+        $block_entity->save();
+
+        // Place the block into a theme and region.
+        $block['instance']['plugin'] = 'block_content:' . $block_entity->uuid();
+        Block::create($block['instance'])->save();
+      }
+    }
+  }
+}
+
+/**
+ * Disables a block in Bartik and Agency theme.
+ *
+ * @param $module
+ *   Block's module.
+ * @param $delta
+ *   Block's delta.
+ */
+function opendrupal_agency_content_disable_block($id) {
+  /** @var \Drupal\block\Entity\Block $block */
+  $block = Drupal::entityManager()->getStorage('block')->load($id);
+  if ($block) {
+    $block->disable()->save();
+  }
+  return;
+}
+
+/**
+ * Creates a menu link.
+ *
+ * @param array $data
+ *   Menu link data.
+ */
+function opendrupal_agency_content_add_menu_link(array $data) {
+
+  \Drupal::entityManager()
+    ->getStorage('menu_link_content')
+    ->create($data)
+  ->save();
+}

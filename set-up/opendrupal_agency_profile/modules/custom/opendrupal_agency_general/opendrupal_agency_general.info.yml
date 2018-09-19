@@ -1,0 +1,6 @@
+name: OpenDrupal Agency General
+type: module
+description: 'General helper module for the OpenDrupal Agency installation profile.'
+package: OpenDrupal
+version: 8.x-1.0
+core: 8.x

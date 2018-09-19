@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+  module:
+    - contact_block
+    - system
+  theme:
+    - opendrupal_agency
+id: contactblock
+theme: opendrupal_agency
+region: content
+weight: 1
+provider: null
+plugin: contact_block
+settings:
+  id: contact_block
+  label: 'Contact us'
+  provider: contact_block
+  label_display: visible
+  contact_form: feedback
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

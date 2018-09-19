@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Overrides page.html.twig for main menu.
+ *
+ * @see template_preprocess_page()
+ * @see page.html.twig
+ *
+ * Changes:
+ *  - Added primary_menu region.
+ *  - Removed unused default regions.
+ *  - Removed logo, site_name.
+ *  - Removed front_page conditions. This template is for front-page only.
+ *  - Added hardcoded 'Tell me more' link.
+ *  - Removed title, action_links
+ */
+#}
+<div class="layout-container">
+
+  {{ page.primary_menu }}
+
+  <header>
+    {{ page.header }}
+  </header>
+
+  {{ messages }}
+  {{ page.help }}
+  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+  {{ tabs }}
+
+  {{ page.content }}
+  {{ page.footer }}
+
+</div>{# /.layout-container #}

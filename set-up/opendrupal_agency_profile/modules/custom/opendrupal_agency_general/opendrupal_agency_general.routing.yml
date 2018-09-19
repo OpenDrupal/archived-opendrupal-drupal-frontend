@@ -1,0 +1,7 @@
+opendrupal_agency_general.front:
+  path: '/front'
+  defaults:
+    _controller: '\Drupal\opendrupal_agency_general\Controller\DefaultController::emptyPage'
+    _title: 'Welcome To Our Studio!'
+  requirements:
+    _permission: 'access content'

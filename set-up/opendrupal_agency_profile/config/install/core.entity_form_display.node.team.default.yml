@@ -1,0 +1,85 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.team.body
+    - field.field.node.team.field__font
+    - field.field.node.team.field__subtitle
+    - field.field.node.team.field_team_image
+    - node.type.team
+  module:
+    - image
+    - path
+    - text
+id: node.team.default
+targetEntityType: node
+bundle: team
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+  field__font:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field__subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_team_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  path:
+    type: path
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,5 +1,5 @@
 # OpenDrupal Drupal 8 front-end development course
-This course is part of the [OpenDrupal curriculum](https://opendrupal.github.com).
+This course is part of the [OpenDrupal curriculum](https://opendrupal.github.io).
 
 With this course you will learn to implement a front-end design as a Drupal theme.
 

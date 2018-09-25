@@ -4,18 +4,21 @@ Estimated time: 60 min.
 ==== Exercise 1 ====
 Prepare Drupal for front-end development.
 - Disable CSS and JS aggregation at admin/config/development/performance.
+- Enable the following modules: Devel, Kint
 - Enable twig debugging:
-  - Check that the sites/default/settings.php (or the active settings.php)
+	- The below instruction assume that sites/default is used for the settings of your site. If you use a different setup
+	  change the paths accordingly.
+  - Check that the sites/default/settings.php
     contains:
     $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
-  - In sites/default/services.yml (or the one designated by the above line of code)
+	- Copy sites/default/default.services.yml to sites/default/services.yml
+  - In sites/default/services.yml
     change the value of twig debug config to 'true':
       twig.config:
         debug: true
   - Clear the cache
   - Check that the front page's HTML source starts with:
     <!--THEME DEBUG-->
-	- Enable the following modules: Devel, Kint
 
 ==== Exercise 2 ====
 Create a library for locally stored CSS files.

@@ -8,8 +8,8 @@ Adjust the HTML of the contact form block.
   button and field layout will be covered in the following exercises.
 
 ==== Exercise 2 ====
-Adjust the HTML of the contact form for a two collumn layout.
-- Compare the apprearence of the form in Drupal and in the Source. The fields
+Adjust the HTML of the contact form for a two column layout.
+- Compare the appearance of the form in Drupal and in the source. The fields
   name, email and telephone must be on the left, the message field on the 
   right.
 - Use a form alter function to add wrappers to the fields to

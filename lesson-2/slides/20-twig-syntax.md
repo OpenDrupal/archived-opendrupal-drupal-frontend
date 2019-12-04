@@ -242,6 +242,6 @@ $sandwich->__get('cheese');
 
 ```twig
 {% if node.isPublished() %}
-id="node-{{ node.id }}”
+id="node-{{ node.id }}"
 'node--type-' ~ node.bundle|clean_class
 ```

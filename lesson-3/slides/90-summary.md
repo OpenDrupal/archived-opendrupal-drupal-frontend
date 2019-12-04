@@ -4,7 +4,7 @@
 - THEME.theme
 - Twig templates: {{ … }}, {% … %} {# … #}
 - dump(), kint(), twig debug settings
-- preprocess
+- Preprocess
 - Render elements
 - Form alter, FormStateInterface class.
 - Inline templates

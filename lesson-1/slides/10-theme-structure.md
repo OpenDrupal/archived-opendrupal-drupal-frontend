@@ -26,7 +26,7 @@
 name: Seven
 type: theme
 base theme: classy
-description: 'The default administration theme for Drupal 8 …'
+description: 'The default administration theme for Drupal …'
 package: Core
 version: VERSION
 core: 8.x

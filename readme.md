@@ -1,6 +1,6 @@
-# OpenDrupal Drupal 8 front-end development course materials
+# OpenDrupal Drupal front-end development course materials
 
-Implement a front-end design as a Drupal theme. Learn to use Drupal's theme layer, including CSS, JavaScript, Twig templates and libraries.
+Implement a front-end design as a Drupal theme. Learn to use Drupal's theme layer, including CSS, JavaScript, Twig templates and libraries. Suitable for drupal 9.
 
 View the slides on-line at https://opendrupal.github.io/opendrupal-drupal-frontend
 

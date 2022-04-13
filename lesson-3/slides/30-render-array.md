@@ -2,7 +2,7 @@
 
 --vv--
 
-# Render Array in Drupal 8
+# Render Array in Drupal
 - Goal: All HTML output of modules is in the form of a Render Array.
 - All output goes via a *.html.twig template.
 - Use #markup for content that contains HTML.
@@ -80,6 +80,6 @@ $build['string'] = array(
 --vv--
 
 # Exercise
-- Search for inline-templates in the Drupal 8 code.
+- Search for inline-templates in the Drupal code.
 - Examine the operation of some of these templates.
 

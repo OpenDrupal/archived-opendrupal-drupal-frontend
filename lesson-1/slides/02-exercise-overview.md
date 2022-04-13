@@ -3,7 +3,7 @@
 --vv--
 
 # The theme
-Create a Drupal 8 single page portfolio theme. Source HTML and CSS are provided by the Agency theme, which is based on Bootstrap.
+Create a Drupal single page portfolio theme. Source HTML and CSS are provided by the Agency theme, which is based on Bootstrap.
 
 --vv--
 
@@ -14,7 +14,7 @@ Create a Drupal 8 single page portfolio theme. Source HTML and CSS are provided 
 
 # Development environment
 - Use a local development environment and a local host server.
-  - The latest stable Drupal 8 core
+  - The latest stable Drupal core
   - Included installation profile
   - Devel Kint module.
   - Drush 9.
